@@ -1,0 +1,53 @@
+<mat-card >CRUD Example</mat-card>
+<form [formGroup]="formGroupTiposDocumento">
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="marginbottom">
+        <mat-form-field appearance="fill">
+          <mat-label>Tipo Documento</mat-label>
+          <mat-select formControlName="TipoDocumento" (selectionChange)="tipoDocumentoChanged($event.value)">
+            <mat-option>Seleccione..</mat-option>
+            <mat-option *ngFor="let tid of this.tiposDocumento" [value]="tid">
+              {{tid}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="this.formGroupTiposDocumento.get('TipoDocumento')?.invalid">El Tipo de documento es requerido.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="marginbottom">
+        <mat-form-field appearance="standard">
+          <mat-label>Nº de Documento </mat-label>
+          <input autocomplete="off" matInput formControlName="NumeroDocumento" maxlength="15" >
+          <mat-error *ngIf="this.formGroupTiposDocumento.get('NumeroDocumento')?.invalid">El número de documento es
+            requerido.</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="marginbottom">
+        <mat-form-field appearance="standard">
+          <mat-label>Nombre del Tipo de Documento </mat-label>
+          <input autocomplete="off" matInput formControlName="Nombre" maxlength="100" >
+          <mat-error *ngIf="this.formGroupTiposDocumento.get('Nombre')?.invalid">El nombre es
+            requerido.</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class=" marginbottom">
+        <mat-checkbox formControlName="TieneEmail" (change)="cambioCheckEmail($event.checked)"
+          color="primary"> Tiene email
+        </mat-checkbox>
+      </div>
+
+    </div>
+    <br>
+
+    <div style="padding-bottom: 15px;">
+      <button mat-raised-button color="default" (click)="cancel()">Cancel</button>
+      <button mat-raised-button color="primary" (click)="save()">Save</button>
+    </div>
+
+  </div>
+</form>

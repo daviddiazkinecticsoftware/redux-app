@@ -1,0 +1,141 @@
+.mat-toolbar-row, .mat-toolbar-single-row {
+  height: 85px;
+  padding-right: 110px;
+}
+
+.mat-drawer.mat-drawer-side {
+  background-color: whitesmoke;
+  width: 280px;
+  max-height: 100%;
+}
+
+.custom-width{
+  width: 500px;
+}
+
+.mat-sidenav-fixed{
+  background-color: whitesmoke !important;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.mat-sidenav-content{
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+
+.mat-icon-button{
+  border: none;
+}
+
+.topbar-administrativo .menu-usuario-topbar-administrativo{
+  color : rgba(255,255,255,1);
+  font-size: 14px;
+}
+
+.layout-general-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+}
+
+.example-is-mobile .topbar-general {
+  position: fixed;
+  /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+  z-index: 2;
+}
+
+.topbar-general{
+  background: #0A3256;
+}
+
+.topbar-general .spacer-topbar-general {
+  flex: 1 1 auto;
+}
+
+.topbar-general .logo-topbar-general{
+  height:83px;
+}
+
+
+.topbar-general .profile-topbar-general {
+  height: 40px ;
+  width: 40px ;
+  border-radius: 50%;
+  flex-shrink: 0;
+  object-fit: cover;
+  margin-right: 16px;
+}
+
+.topbar-general .icon {
+  color: #ffffff;
+}
+
+.topbar-general .mat-icon-button {
+  color: #ffffff;
+}
+
+.topbar-general .label-usuario-topbar-general{
+  margin-left: 25px;
+  margin-right: 20px;
+  color : rgba(255,255,255,1);
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.topbar-general .separador-botones-topbar-general{
+  margin-left: 25px;
+  color : rgba(255,255,255,1);
+  margin-top: 16px;
+}
+
+
+.layout-general-sidenav-container {
+  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+     causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+     flex: 1;
+     background-color: #F0F0F7;
+
+}
+
+.example-is-mobile .layout-general-sidenav-container {
+  /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+     `<body>` to be our scrolling element for mobile layouts. */
+  flex: 1 0 auto;
+  background-color: #F0F0F7;
+}
+
+.no-box-shadow .mat-expansion-panel {
+  box-shadow: none;
+}
+
+.layout-general-container .icon{
+  margin-right: 10px;
+  border: none
+}
+
+.fuente{
+  font-size: 16px;
+  font-weight: 500;
+  padding-left: 2.95%;
+  color: #4E4E4E;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+button:focus {
+  outline: none !important;
+}
+
+@media (min-width: 1025px) {
+  .sinPadding {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
