@@ -1,4 +1,144 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("../node_modules/bootstrap/dist/css/bootstrap.min.css");
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.titulo{
+  background: #0f4c81;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  display: flex;
+  height: 56px;
+  color: white;
+  font-size: 18px;
+}
+
+/* Material */
+
+.mat-form-field {
+  width: 100%;
+}
+
+button.mat-button-inline {
+  margin-top: 25px;
+  height: 43px;
+}
+
+.mat-button{
+  color: #4E4E4E;
+}
+
+.mat-raised-button{
+  color:#0f4c81;
+}
+
+.mat-button.mat-primary,
+.mat-icon-button.mat-primary,
+.mat-stroked-button.mat-primary {
+  color: #0f4c81;
+}
+
+.mat-flat-button.mat-primary,
+.mat-raised-button.mat-primary,
+.mat-fab.mat-primary,
+.mat-mini-fab.mat-primary {
+  background-color: #0f4c81;
+}
+
+.mat-step-header .mat-step-icon-selected,
+.mat-step-header .mat-step-icon-state-done,
+ .mat-step-header .mat-step-icon-state-edit {
+  background-color: #267CD5;
+}
+
+.mat-step-icon{
+  width: 28px !important;
+  height: 28px !important;
+}
+
+.mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: #0f4c81;
+}
+
+.mat-horizontal-stepper-header{
+  pointer-events: none !important;
+}
+
+.mat-row, .mat-footer-row {
+  height: 52px !important;
+}
+
+.mat-header-cell{
+  color: #4E4E4E;
+  font-size: 14px;
+  text-align: center !important;
+  text-transform: uppercase;
+}
+
+.mat-cell{
+  text-align: center;
+  color: #4E4E4E;
+}
+
+.mat-sort-header-container {
+  display:flex;
+  justify-content:center;
+}
+
+.mat-expansion-panel-header{
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.mat-expansion-panel-header-title {
+  color: #4E4E4E;
+}
+
+.mat-step-header .mat-step-label.mat-step-label-active{
+  color: #4E4E4E;
+}
+
+.mat-paginator{
+  margin-top: 2rem;
+}
+
+.mat-dialog-actions{
+  margin-top: 2rem;
+  margin-bottom: -8px !important;
+}
+
+.mat-tab-header{
+  margin-bottom: 2rem;
+}
+
+.mat-tab-label {
+  min-width: 200px !important;
+  padding: 5px !important;
+  background-color: transparent !important;
+  color: black !important;
+  font-weight: 500 !important;
+  opacity: inherit !important;
+}
+
+.mat-form-field-label {
+  font-weight: 500 !important;
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar{
+  background: #267CD5;
+}
+
+.mat-input-element:disabled{
+  color:gray
+}
+.mat-tab-body-content {
+  overflow: hidden !important;
+}
+
+table:not(.mat-calendar-table){
+  width: 100%;
+  border: 2px solid #707070;
+}

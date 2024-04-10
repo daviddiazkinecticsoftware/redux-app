@@ -1,53 +1,94 @@
-<mat-card >CRUD Example</mat-card>
-<form [formGroup]="formGroupTiposDocumento">
-  <div class="container-fluid">
-    <div class="row">
-
-      <div class="marginbottom">
-        <mat-form-field appearance="fill">
-          <mat-label>Tipo Documento</mat-label>
-          <mat-select formControlName="TipoDocumento" (selectionChange)="tipoDocumentoChanged($event.value)">
-            <mat-option>Seleccione..</mat-option>
-            <mat-option *ngFor="let tid of this.tiposDocumento" [value]="tid">
-              {{tid}}
-            </mat-option>
-          </mat-select>
-          <mat-error *ngIf="this.formGroupTiposDocumento.get('TipoDocumento')?.invalid">El Tipo de documento es requerido.
-          </mat-error>
-        </mat-form-field>
+<mat-card class="titulo">
+  <h1>CRUD Example</h1>
+</mat-card>
+<mat-card>
+  <form [formGroup]="formGroup">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-2">
+          <mat-form-field appearance="fill">
+            <mat-label>Tipo Documento</mat-label>
+            <mat-select formControlName="TypeDoc" (selectionChange)="tipoDocumentoChanged($event.value)">
+              <mat-option>Seleccione..</mat-option>
+              <mat-option *ngFor="let tid of this.tiposDocumento" [value]="tid">
+                {{tid}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="this.formGroup.get('TypeDoc')?.invalid">El Tipo de documento es requerido.
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-md-2">
+          <mat-form-field appearance="standard">
+            <mat-label>Nº de Documento </mat-label>
+            <input autocomplete="off" matInput formControlName="Doc" maxlength="15">
+            <mat-error *ngIf="this.formGroup.get('Doc')?.invalid">El número de documento es
+              requerido.</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field appearance="standard">
+            <mat-label>Nombre y Apellido</mat-label>
+            <input autocomplete="off" matInput formControlName="Name" maxlength="100">
+            <mat-error *ngIf="this.formGroup.get('Name')?.invalid">El nombre es requerido.</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-md-3" style="margin-top: 2rem;">
+          <mat-checkbox formControlName="HasEmail" (change)="cambioCheckEmail($event.checked)" color="primary"> Tiene
+            email</mat-checkbox>
+        </div>
       </div>
-
-      <div class="marginbottom">
-        <mat-form-field appearance="standard">
-          <mat-label>Nº de Documento </mat-label>
-          <input autocomplete="off" matInput formControlName="NumeroDocumento" maxlength="15" >
-          <mat-error *ngIf="this.formGroupTiposDocumento.get('NumeroDocumento')?.invalid">El número de documento es
-            requerido.</mat-error>
-        </mat-form-field>
+      <br>
+      <div style="padding-bottom: 15px;">
+        <button mat-raised-button color="default" (click)="cancel()">Cancel</button>
+        <button mat-raised-button color="primary" [disabled]="!this.formGroup.valid" (click)="save()">Save</button>
       </div>
-
-      <div class="marginbottom">
-        <mat-form-field appearance="standard">
-          <mat-label>Nombre del Tipo de Documento </mat-label>
-          <input autocomplete="off" matInput formControlName="Nombre" maxlength="100" >
-          <mat-error *ngIf="this.formGroupTiposDocumento.get('Nombre')?.invalid">El nombre es
-            requerido.</mat-error>
-        </mat-form-field>
-      </div>
-
-      <div class=" marginbottom">
-        <mat-checkbox formControlName="TieneEmail" (change)="cambioCheckEmail($event.checked)"
-          color="primary"> Tiene email
-        </mat-checkbox>
-      </div>
-
     </div>
-    <br>
-
-    <div style="padding-bottom: 15px;">
-      <button mat-raised-button color="default" (click)="cancel()">Cancel</button>
-      <button mat-raised-button color="primary" (click)="save()">Save</button>
+  </form>
+</mat-card>
+<mat-card class="titulo">
+  <h1>Customers</h1>
+</mat-card>
+<mat-card style="min-height: 6rem;">
+  <mat-card-content>
+    <div *ngIf="errors">
+      <h1>{{errors}}</h1>
     </div>
-
-  </div>
-</form>
+    <table *ngIf="!errors" matSort mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="Name">
+        <th mat-sort-header mat-header-cell *matHeaderCellDef>Nombre</th>
+        <td mat-cell *matCellDef="let element">{{element.Name}}</td>
+      </ng-container>
+      <ng-container matColumnDef="TypeDoc">
+        <th mat-sort-header mat-header-cell *matHeaderCellDef>Tipo Documento</th>
+        <td mat-cell *matCellDef="let element">{{element.TypeDoc}}</td>
+      </ng-container>
+      <ng-container matColumnDef="Doc">
+        <th mat-sort-header mat-header-cell *matHeaderCellDef>Número Documento</th>
+        <!-- <td mat-cell *matCellDef="let element">{{element.Doc | mask: '00-00000000-0'}}</td> -->
+        <td mat-cell *matCellDef="let element">{{element.Doc }}</td>
+      </ng-container>
+      <ng-container matColumnDef="HasEmail">
+        <th mat-sort-header mat-header-cell *matHeaderCellDef>Tiene Email</th>
+        <td mat-cell *matCellDef="let element">{{element.HasEmail ? 'Sí' : 'No'}}</td>
+      </ng-container>
+      <ng-container matColumnDef="Actions">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button>
+            <mat-icon title="Edit" (click)="editCustomer(element.id)">create</mat-icon>
+          </button>
+          <button mat-icon-button>
+            <mat-icon title="Delete" (click)="deleteCustomer(element.id)">delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColums"></tr>
+      <tr mat-row *matRowDef="let row;columns:displayedColums"></tr>
+    </table>
+  </mat-card-content>
+  <mat-card-footer>
+    <mat-paginator *ngIf="!errors" [pageSizeOptions]="[5,10,50]" showFirstLastButtons></mat-paginator>
+  </mat-card-footer>
+</mat-card>
+<br>

@@ -1,5 +1,14 @@
 export interface Customer{
-  id: number,
-  name: string,
-  email: string
+  Id: number,
+  TypeDoc: string,
+  Doc: number,
+  Name: string,
+  HasEmail: boolean
+}
+
+
+export interface CustomerModel {
+  list: Customer[],
+  custumerobj: Customer,
+  errormessage: string
 }

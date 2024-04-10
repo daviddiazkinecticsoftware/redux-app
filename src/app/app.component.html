@@ -1,10 +1,5 @@
 <div class="layout-general-container menu">
   <mat-toolbar class="topbar-general">
-    <span class="spacer-topbar-general"></span>
-    <button mat-icon-button class="menu-usuario-topbar-administrativo">
-      <mat-icon>exit_to_app</mat-icon>
-      <span>Salir</span>
-    </button>
   </mat-toolbar>
 </div>
 <br>
@@ -12,11 +7,9 @@
 <br>
 <br>
 <mat-sidenav-container>
-
-<mat-sidenav-content fixedTopGap="85" class="sinPadding">
-  <div class="container-fluid" style="background-color: #ffff; height: auto;  margin-top: 10px; padding-top: 1px;">
-    <br>
-    <router-outlet></router-outlet>
-  </div>
-</mat-sidenav-content>
+  <mat-sidenav-content fixedTopGap="85" class="sinPadding">
+    <div class="container-fluid" style="background-color: #ffff; height: auto;  margin-top: 10px; padding-top: 1px;">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
 </mat-sidenav-container>

@@ -1,0 +1,19 @@
+{
+  "customers": [
+    {
+      "Id": 1,
+      "Name": "Pedro García",
+      "TypeDoc": "DNI",
+      "Doc": 30444555,
+      "HasEmail": true
+    },
+    {
+      "id": "0adf",
+      "Id": 0,
+      "Name": "otro",
+      "HasEmail": false,
+      "TypeDoc": "DNI",
+      "Doc": "123"
+    }
+  ]
+}
